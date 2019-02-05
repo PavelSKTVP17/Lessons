@@ -93,7 +93,7 @@ class MyCollection
         ARR[I1]=OU;
         IND[I1]=I1;
         I1++; 
-        max = (I1>max)? I1 : max ;
+        max = (I1>max)? I1 : max-1 ;
                 
     }
     public void Remove( ObjectUnit OU )
@@ -104,7 +104,7 @@ class MyCollection
         if(indexOf==-1) return;
         System.out.println(  ARR[ IND[indexOf] ] );
         System.out.println( OU );
-        ARR[ IND[indexOf] ]=null;
+        ARR[ IND[indexOf+1] ]=null;
         for (int i = indexOf; i < max+1; i++) IND[i]++;
         max--;
         
