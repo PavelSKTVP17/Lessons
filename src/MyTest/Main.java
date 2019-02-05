@@ -100,13 +100,14 @@ class MyCollection
     {
         int indexOf = -1;
         for (int i = 0; i < max+1; i++)      {          if( ARR[i]==OU ) { indexOf=i; break; }       }
-        //indexOf=Arrays.asList(ARR).indexOf(OU);
+        indexOf=Arrays.asList(ARR).indexOf(OU);
         if(indexOf==-1) return;
+        System.out.println(  ARR[ IND[indexOf] ] );
+        System.out.println( OU );
         ARR[ IND[indexOf] ]=null;
         for (int i = indexOf; i < max+1; i++) IND[i]++;
         max--;
-        System.out.println( ARR[999] );
-         System.out.println( OU );
+        
     }
     
     public ObjectUnit Get(int index )
