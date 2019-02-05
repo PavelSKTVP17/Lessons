@@ -1,6 +1,7 @@
 package MyTest;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class Main 
@@ -57,6 +58,22 @@ public class Main
         }
         aft=System.currentTimeMillis(); 
         System.out.println( "my get= "+(aft-bef) );
+        //
+        //
+        //
+        //
+        oob=arl.get(250000);
+        bef=System.currentTimeMillis(); 
+        arl.remove(oob );
+        aft=System.currentTimeMillis(); 
+        System.out.println( "arl rem= "+(aft-bef) );
+        //
+        //
+        oob=mc2.Get(250000);
+        bef=System.currentTimeMillis(); 
+        mc2.Remove( oob );
+        aft=System.currentTimeMillis(); 
+        System.out.println( "my rem= "+(aft-bef) );
     }
     
 }
@@ -65,6 +82,7 @@ class MyCollection
     private ObjectUnit[] ARR;
     private int[] IND;
     private int I1=0;
+    private int max=0;
     public MyCollection( int len)
     {
         this.ARR=new ObjectUnit[len];
@@ -74,15 +92,21 @@ class MyCollection
     {
         ARR[I1]=OU;
         IND[I1]=I1;
-        I1++;
+        I1++; 
+        max = (I1>max)? I1 : max ;
+                
     }
     public void Remove( ObjectUnit OU )
     {
         int indexOf = -1;
-        for (int i = 0; i < ARR.length; i++) 
-        {
-            if(ARR[i]==OU) { indexOf=i; break; }
-        }
+        for (int i = 0; i < max+1; i++)      {          if( ARR[i]==OU ) { indexOf=i; break; }       }
+        //indexOf=Arrays.asList(ARR).indexOf(OU);
+        if(indexOf==-1) return;
+        ARR[ IND[indexOf] ]=null;
+        for (int i = indexOf; i < max+1; i++) IND[i]++;
+        max--;
+        System.out.println( ARR[999] );
+         System.out.println( OU );
     }
     
     public ObjectUnit Get(int index )
