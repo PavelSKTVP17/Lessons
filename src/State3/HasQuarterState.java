@@ -16,7 +16,7 @@ public class HasQuarterState implements State
     @Override
     public void insertQuarter() 
     {
-        System.out.println(" U cnt insert anothe quarter");
+        System.out.println(" U cnt insert another quarter");
     }
 
     @Override
