@@ -74,10 +74,10 @@ public class SwingView implements ActionListener, View
         mainPanel.add(txbField);
         
         btnAdd = createButton("Add");
-        mainPanel.add(txbField);
+        mainPanel.add(btnAdd);
         
         btnRem = createButton("Remove");
-        mainPanel.add(txbField);
+        mainPanel.add(btnRem);
         
     }
     
